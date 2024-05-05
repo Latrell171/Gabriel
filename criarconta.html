@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - Nike</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box">
+            <div class="content">
+                <form id="signupForm">
+                    <div class="logo-wrap">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <h1><img src="../src/img/logonike.jpg" alt="Logo da Nike" height="50px" width="50px"></h1>
+                    <div class="input-box">
+                        <input type="text" id="username" required>
+                        <span>Nome de Usuário</span>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" id="email" required>
+                        <span>E-mail</span>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" id="password" required>
+                        <span>Senha</span>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" id="confirmPassword" required>
+                        <span>Confirmar Senha</span>
+                    </div>
+                    <div class="input-box" id="botao">
+                        <input type="submit" value="Criar Conta">
+                    </div>
+                    <div class="links">
+                        <a href="#">Já possui uma conta? Faça login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="copy">
+        <p>© 2024 Nike. Todos os direitos reservados.</p>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio do formulário
+
+            // Obter os valores dos campos de entrada
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Verificar se as senhas são iguais
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem!');
+                return; // Impede o envio do formulário se as senhas não coincidirem
+            }
+
+            // Salvar os dados do usuário no localStorage
+            var userData = {
+                username: username,
+                email: email,
+                password: password
+            };
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            // Redirecionar para a página de login
+            window.location.href = 'index1.html';
+        });
+    </script>
+</body>
+
+</html>
